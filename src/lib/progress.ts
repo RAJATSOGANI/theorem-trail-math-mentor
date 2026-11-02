@@ -28,4 +28,3 @@ export function useCompletedLessons() {
   return { done, toggle };
 }
 
-export function PageHeader() { return null; }

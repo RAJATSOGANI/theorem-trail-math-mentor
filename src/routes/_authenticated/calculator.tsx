@@ -96,7 +96,7 @@ function Plot({ fx }: { fx: string }) {
         const x = -R + (2 * R * i) / 400;
         const y = Number(f.evaluate({ x }));
         if (!Number.isFinite(y) || Math.abs(y) > R * 3) { pen = false; continue; }
-        const px = ((x + R) / (2 * R)) * W, py = H / 2 - (y / R) * (H / 2) * (W / H) * (H / W);
+        const px = ((x + R) / (2 * R)) * W, py = H / 2 - (y / R) * (H / 2);
         d += `${pen ? "L" : "M"}${px.toFixed(1)},${py.toFixed(1)}`; pen = true;
       }
       return { path: d, err: "" };
