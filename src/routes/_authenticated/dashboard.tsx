@@ -17,7 +17,7 @@ function Dashboard() {
   const { done } = useCompletedLessons();
   const totalLessons = COURSES.reduce((n, c) => n + c.lessons.length, 0);
   const avg = attempts.length ? Math.round((attempts.reduce((s, a) => s + a.score / a.total, 0) / attempts.length) * 100) : 0;
-  const name = (user.user_metadata?.full_name as string)?.split(" ")[0] || "there";
+  const name = (user.user_metadata?.["full_name"] as string)?.split(" ")[0] || "there";
 
   const stats = [
     { label: "Quizzes taken", value: attempts.length, icon: ClipboardList },

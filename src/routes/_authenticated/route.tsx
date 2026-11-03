@@ -39,7 +39,7 @@ function AppShell() {
     navigate({ to: "/auth", replace: true });
   }
 
-  const name = (user.user_metadata?.full_name as string) || user.email?.split("@")[0] || "Student";
+  const name = (user.user_metadata?.["full_name"] as string) || user.email?.split("@")[0] || "Student";
 
   return (
     <div className="flex min-h-screen bg-background">
