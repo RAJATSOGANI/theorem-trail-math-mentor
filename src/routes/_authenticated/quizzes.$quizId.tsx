@@ -41,7 +41,7 @@ function QuizPage() {
     if (submitted) return;
     setSubmitted(true);
     const s = answers.filter((a, i) => a === quiz.questions[i]?.answer).length;
-    const { error } = await supabase.from("quiz_attempts").insert({ user_id: user.id, quiz_id: quiz.id, topic: quiz.topic, score: s, total: quiz.questions.length });
+    const { error } = await supabase.from("quiz_attempts").insert({ user_id: user.id, quiz_id: quiz.id, topic: quiz.topic, score: s, total: quiz.questions.length, mode: quiz.exam, source: "library", duration_seconds: quiz.minutes * 60 - left, details: { answers } });
     if (error) toast.error("Couldn't save your score: " + error.message);
     else { toast.success("Score saved to your progress"); qc.invalidateQueries({ queryKey: ["attempts"] }); }
   }

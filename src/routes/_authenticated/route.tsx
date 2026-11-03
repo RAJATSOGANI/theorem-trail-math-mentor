@@ -1,7 +1,7 @@
 import { createFileRoute, Link, Outlet, redirect, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { LayoutDashboard, Bot, ListChecks, Calculator, BookOpen, GraduationCap, ClipboardList, LineChart, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, Bot, Sparkle, ListChecks, Calculator, BookOpen, GraduationCap, ClipboardList, LineChart, LogOut, Menu, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Logo } from "@/components/Logo";
 
@@ -22,8 +22,9 @@ const nav = [
   { to: "/calculator", label: "Calculator", icon: Calculator },
   { to: "/courses", label: "Courses", icon: BookOpen },
   { to: "/exam-prep", label: "GATE & JAM", icon: GraduationCap },
+  { to: "/quiz-generator", label: "AI Quiz Generator", icon: Sparkle },
   { to: "/quizzes", label: "Quizzes & Tests", icon: ClipboardList },
-  { to: "/progress", label: "Progress", icon: LineChart },
+  { to: "/progress", label: "Analytics", icon: LineChart },
 ] as const;
 
 function AppShell() {

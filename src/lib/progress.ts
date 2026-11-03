@@ -2,7 +2,7 @@ import { queryOptions } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 
-export type Attempt = { id: string; quiz_id: string; topic: string; score: number; total: number; created_at: string };
+export type Attempt = { id: string; quiz_id: string; topic: string; score: number; total: number; created_at: string; difficulty: string | null; mode: string | null; source: string };
 
 export const attemptsQuery = queryOptions({
   queryKey: ["attempts"],
