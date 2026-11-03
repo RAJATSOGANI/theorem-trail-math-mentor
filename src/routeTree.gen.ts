@@ -17,6 +17,7 @@ import { Route as AuthenticatedCalculatorRouteImport } from './routes/_authentic
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedExamPrepRouteImport } from './routes/_authenticated/exam-prep'
 import { Route as AuthenticatedProgressRouteImport } from './routes/_authenticated/progress'
+import { Route as AuthenticatedQuizGeneratorRouteImport } from './routes/_authenticated/quiz-generator'
 import { Route as AuthenticatedSolverRouteImport } from './routes/_authenticated/solver'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 import { Route as AuthenticatedCoursesIndexRouteImport } from './routes/_authenticated/courses.index'
@@ -63,6 +64,12 @@ const AuthenticatedProgressRoute = AuthenticatedProgressRouteImport.update({
   path: '/progress',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedQuizGeneratorRoute =
+  AuthenticatedQuizGeneratorRouteImport.update({
+    id: '/quiz-generator',
+    path: '/quiz-generator',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedSolverRoute = AuthenticatedSolverRouteImport.update({
   id: '/solver',
   path: '/solver',
@@ -106,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/exam-prep': typeof AuthenticatedExamPrepRoute
   '/progress': typeof AuthenticatedProgressRoute
+  '/quiz-generator': typeof AuthenticatedQuizGeneratorRoute
   '/solver': typeof AuthenticatedSolverRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/courses/$courseId': typeof AuthenticatedCoursesCourseIdRoute
@@ -121,6 +129,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/exam-prep': typeof AuthenticatedExamPrepRoute
   '/progress': typeof AuthenticatedProgressRoute
+  '/quiz-generator': typeof AuthenticatedQuizGeneratorRoute
   '/solver': typeof AuthenticatedSolverRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/courses/$courseId': typeof AuthenticatedCoursesCourseIdRoute
@@ -138,6 +147,7 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/exam-prep': typeof AuthenticatedExamPrepRoute
   '/_authenticated/progress': typeof AuthenticatedProgressRoute
+  '/_authenticated/quiz-generator': typeof AuthenticatedQuizGeneratorRoute
   '/_authenticated/solver': typeof AuthenticatedSolverRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/courses/$courseId': typeof AuthenticatedCoursesCourseIdRoute
@@ -155,6 +165,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/exam-prep'
     | '/progress'
+    | '/quiz-generator'
     | '/solver'
     | '/tutor'
     | '/courses/$courseId'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/exam-prep'
     | '/progress'
+    | '/quiz-generator'
     | '/solver'
     | '/tutor'
     | '/courses/$courseId'
@@ -186,6 +198,7 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/_authenticated/exam-prep'
     | '/_authenticated/progress'
+    | '/_authenticated/quiz-generator'
     | '/_authenticated/solver'
     | '/_authenticated/tutor'
     | '/_authenticated/courses/$courseId'
@@ -259,6 +272,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProgressRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/quiz-generator': {
+      id: '/_authenticated/quiz-generator'
+      path: '/quiz-generator'
+      fullPath: '/quiz-generator'
+      preLoaderRoute: typeof AuthenticatedQuizGeneratorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/solver': {
       id: '/_authenticated/solver'
       path: '/solver'
@@ -309,6 +329,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedExamPrepRoute: typeof AuthenticatedExamPrepRoute
   AuthenticatedProgressRoute: typeof AuthenticatedProgressRoute
+  AuthenticatedQuizGeneratorRoute: typeof AuthenticatedQuizGeneratorRoute
   AuthenticatedSolverRoute: typeof AuthenticatedSolverRoute
   AuthenticatedTutorRoute: typeof AuthenticatedTutorRoute
   AuthenticatedCoursesCourseIdRoute: typeof AuthenticatedCoursesCourseIdRoute
@@ -322,6 +343,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedExamPrepRoute: AuthenticatedExamPrepRoute,
   AuthenticatedProgressRoute: AuthenticatedProgressRoute,
+  AuthenticatedQuizGeneratorRoute: AuthenticatedQuizGeneratorRoute,
   AuthenticatedSolverRoute: AuthenticatedSolverRoute,
   AuthenticatedTutorRoute: AuthenticatedTutorRoute,
   AuthenticatedCoursesCourseIdRoute: AuthenticatedCoursesCourseIdRoute,
