@@ -38,27 +38,42 @@ export type Database = {
       quiz_attempts: {
         Row: {
           created_at: string
+          details: Json | null
+          difficulty: string | null
+          duration_seconds: number | null
           id: string
+          mode: string | null
           quiz_id: string
           score: number
+          source: string
           topic: string
           total: number
           user_id: string
         }
         Insert: {
           created_at?: string
+          details?: Json | null
+          difficulty?: string | null
+          duration_seconds?: number | null
           id?: string
+          mode?: string | null
           quiz_id: string
           score: number
+          source?: string
           topic: string
           total: number
           user_id: string
         }
         Update: {
           created_at?: string
+          details?: Json | null
+          difficulty?: string | null
+          duration_seconds?: number | null
           id?: string
+          mode?: string | null
           quiz_id?: string
           score?: number
+          source?: string
           topic?: string
           total?: number
           user_id?: string

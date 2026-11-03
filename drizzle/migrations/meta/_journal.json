@@ -8,6 +8,13 @@
       "when": 1793625799830,
       "tag": "0000_profiles",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793700169813,
+      "tag": "0001_quiz_attempt_details",
+      "breakpoints": true
     }
   ]
 }
