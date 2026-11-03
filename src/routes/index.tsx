@@ -60,7 +60,7 @@ function Landing() {
             <MathMarkdown>{"Integrate by parts with $u=x$, $dv=e^x dx$:\n\n$$\\int_0^1 x e^x\\,dx = \\big[x e^x\\big]_0^1 - \\int_0^1 e^x\\,dx = e-(e-1) = 1$$"}</MathMarkdown>
           </div>
           <div className="mt-6 flex items-center gap-3 rounded-lg bg-sidebar-accent p-3 text-sm">
-            <Bot className="h-5 w-5 text-accent" /> Why does $u=x$ make the integral simpler? Ask the tutor.
+            <Bot className="h-5 w-5 text-accent" /> Why does u = x make the integral simpler? Ask the tutor.
           </div>
         </div>
       </section>

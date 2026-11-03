@@ -35,12 +35,12 @@ function QuizPage() {
     return () => clearTimeout(t);
   });
 
-  const score = answers.filter((a, i) => a === quiz.questions[i].answer).length;
+  const score = answers.filter((a, i) => a === quiz.questions[i]?.answer).length;
 
   async function submit() {
     if (submitted) return;
     setSubmitted(true);
-    const s = answers.filter((a, i) => a === quiz.questions[i].answer).length;
+    const s = answers.filter((a, i) => a === quiz.questions[i]?.answer).length;
     const { error } = await supabase.from("quiz_attempts").insert({ user_id: user.id, quiz_id: quiz.id, topic: quiz.topic, score: s, total: quiz.questions.length });
     if (error) toast.error("Couldn't save your score: " + error.message);
     else { toast.success("Score saved to your progress"); qc.invalidateQueries({ queryKey: ["attempts"] }); }
@@ -76,7 +76,7 @@ function QuizPage() {
     );
   }
 
-  const q = quiz.questions[idx];
+  const q = quiz.questions[idx]!;
   return (
     <div className="mx-auto max-w-3xl">
       <div className="flex items-center justify-between">
