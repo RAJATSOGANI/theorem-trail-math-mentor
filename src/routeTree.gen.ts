@@ -16,9 +16,13 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedCalculatorRouteImport } from './routes/_authenticated/calculator'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedExamPrepRouteImport } from './routes/_authenticated/exam-prep'
+import { Route as AuthenticatedExamQuestionsRouteImport } from './routes/_authenticated/exam-questions'
+import { Route as AuthenticatedGraphPlotterRouteImport } from './routes/_authenticated/graph-plotter'
+import { Route as AuthenticatedPhotoSolverRouteImport } from './routes/_authenticated/photo-solver'
 import { Route as AuthenticatedProgressRouteImport } from './routes/_authenticated/progress'
 import { Route as AuthenticatedQuizGeneratorRouteImport } from './routes/_authenticated/quiz-generator'
 import { Route as AuthenticatedSolverRouteImport } from './routes/_authenticated/solver'
+import { Route as AuthenticatedStudyPlannerRouteImport } from './routes/_authenticated/study-planner'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 import { Route as AuthenticatedCoursesIndexRouteImport } from './routes/_authenticated/courses.index'
 import { Route as AuthenticatedCoursesCourseIdRouteImport } from './routes/_authenticated/courses.$courseId'
@@ -59,6 +63,24 @@ const AuthenticatedExamPrepRoute = AuthenticatedExamPrepRouteImport.update({
   path: '/exam-prep',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedExamQuestionsRoute =
+  AuthenticatedExamQuestionsRouteImport.update({
+    id: '/exam-questions',
+    path: '/exam-questions',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedGraphPlotterRoute =
+  AuthenticatedGraphPlotterRouteImport.update({
+    id: '/graph-plotter',
+    path: '/graph-plotter',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPhotoSolverRoute =
+  AuthenticatedPhotoSolverRouteImport.update({
+    id: '/photo-solver',
+    path: '/photo-solver',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedProgressRoute = AuthenticatedProgressRouteImport.update({
   id: '/progress',
   path: '/progress',
@@ -75,6 +97,12 @@ const AuthenticatedSolverRoute = AuthenticatedSolverRouteImport.update({
   path: '/solver',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedStudyPlannerRoute =
+  AuthenticatedStudyPlannerRouteImport.update({
+    id: '/study-planner',
+    path: '/study-planner',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedTutorRoute = AuthenticatedTutorRouteImport.update({
   id: '/tutor',
   path: '/tutor',
@@ -112,9 +140,13 @@ export interface FileRoutesByFullPath {
   '/calculator': typeof AuthenticatedCalculatorRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/exam-prep': typeof AuthenticatedExamPrepRoute
+  '/exam-questions': typeof AuthenticatedExamQuestionsRoute
+  '/graph-plotter': typeof AuthenticatedGraphPlotterRoute
+  '/photo-solver': typeof AuthenticatedPhotoSolverRoute
   '/progress': typeof AuthenticatedProgressRoute
   '/quiz-generator': typeof AuthenticatedQuizGeneratorRoute
   '/solver': typeof AuthenticatedSolverRoute
+  '/study-planner': typeof AuthenticatedStudyPlannerRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/courses/$courseId': typeof AuthenticatedCoursesCourseIdRoute
   '/quizzes/$quizId': typeof AuthenticatedQuizzesQuizIdRoute
@@ -128,9 +160,13 @@ export interface FileRoutesByTo {
   '/calculator': typeof AuthenticatedCalculatorRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/exam-prep': typeof AuthenticatedExamPrepRoute
+  '/exam-questions': typeof AuthenticatedExamQuestionsRoute
+  '/graph-plotter': typeof AuthenticatedGraphPlotterRoute
+  '/photo-solver': typeof AuthenticatedPhotoSolverRoute
   '/progress': typeof AuthenticatedProgressRoute
   '/quiz-generator': typeof AuthenticatedQuizGeneratorRoute
   '/solver': typeof AuthenticatedSolverRoute
+  '/study-planner': typeof AuthenticatedStudyPlannerRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/courses/$courseId': typeof AuthenticatedCoursesCourseIdRoute
   '/quizzes/$quizId': typeof AuthenticatedQuizzesQuizIdRoute
@@ -146,9 +182,13 @@ export interface FileRoutesById {
   '/_authenticated/calculator': typeof AuthenticatedCalculatorRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/exam-prep': typeof AuthenticatedExamPrepRoute
+  '/_authenticated/exam-questions': typeof AuthenticatedExamQuestionsRoute
+  '/_authenticated/graph-plotter': typeof AuthenticatedGraphPlotterRoute
+  '/_authenticated/photo-solver': typeof AuthenticatedPhotoSolverRoute
   '/_authenticated/progress': typeof AuthenticatedProgressRoute
   '/_authenticated/quiz-generator': typeof AuthenticatedQuizGeneratorRoute
   '/_authenticated/solver': typeof AuthenticatedSolverRoute
+  '/_authenticated/study-planner': typeof AuthenticatedStudyPlannerRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/courses/$courseId': typeof AuthenticatedCoursesCourseIdRoute
   '/_authenticated/quizzes/$quizId': typeof AuthenticatedQuizzesQuizIdRoute
@@ -164,9 +204,13 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/dashboard'
     | '/exam-prep'
+    | '/exam-questions'
+    | '/graph-plotter'
+    | '/photo-solver'
     | '/progress'
     | '/quiz-generator'
     | '/solver'
+    | '/study-planner'
     | '/tutor'
     | '/courses/$courseId'
     | '/quizzes/$quizId'
@@ -180,9 +224,13 @@ export interface FileRouteTypes {
     | '/calculator'
     | '/dashboard'
     | '/exam-prep'
+    | '/exam-questions'
+    | '/graph-plotter'
+    | '/photo-solver'
     | '/progress'
     | '/quiz-generator'
     | '/solver'
+    | '/study-planner'
     | '/tutor'
     | '/courses/$courseId'
     | '/quizzes/$quizId'
@@ -197,9 +245,13 @@ export interface FileRouteTypes {
     | '/_authenticated/calculator'
     | '/_authenticated/dashboard'
     | '/_authenticated/exam-prep'
+    | '/_authenticated/exam-questions'
+    | '/_authenticated/graph-plotter'
+    | '/_authenticated/photo-solver'
     | '/_authenticated/progress'
     | '/_authenticated/quiz-generator'
     | '/_authenticated/solver'
+    | '/_authenticated/study-planner'
     | '/_authenticated/tutor'
     | '/_authenticated/courses/$courseId'
     | '/_authenticated/quizzes/$quizId'
@@ -265,6 +317,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedExamPrepRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/exam-questions': {
+      id: '/_authenticated/exam-questions'
+      path: '/exam-questions'
+      fullPath: '/exam-questions'
+      preLoaderRoute: typeof AuthenticatedExamQuestionsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/graph-plotter': {
+      id: '/_authenticated/graph-plotter'
+      path: '/graph-plotter'
+      fullPath: '/graph-plotter'
+      preLoaderRoute: typeof AuthenticatedGraphPlotterRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/photo-solver': {
+      id: '/_authenticated/photo-solver'
+      path: '/photo-solver'
+      fullPath: '/photo-solver'
+      preLoaderRoute: typeof AuthenticatedPhotoSolverRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/progress': {
       id: '/_authenticated/progress'
       path: '/progress'
@@ -284,6 +357,13 @@ declare module '@tanstack/react-router' {
       path: '/solver'
       fullPath: '/solver'
       preLoaderRoute: typeof AuthenticatedSolverRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/study-planner': {
+      id: '/_authenticated/study-planner'
+      path: '/study-planner'
+      fullPath: '/study-planner'
+      preLoaderRoute: typeof AuthenticatedStudyPlannerRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/tutor': {
@@ -328,9 +408,13 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCalculatorRoute: typeof AuthenticatedCalculatorRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedExamPrepRoute: typeof AuthenticatedExamPrepRoute
+  AuthenticatedExamQuestionsRoute: typeof AuthenticatedExamQuestionsRoute
+  AuthenticatedGraphPlotterRoute: typeof AuthenticatedGraphPlotterRoute
+  AuthenticatedPhotoSolverRoute: typeof AuthenticatedPhotoSolverRoute
   AuthenticatedProgressRoute: typeof AuthenticatedProgressRoute
   AuthenticatedQuizGeneratorRoute: typeof AuthenticatedQuizGeneratorRoute
   AuthenticatedSolverRoute: typeof AuthenticatedSolverRoute
+  AuthenticatedStudyPlannerRoute: typeof AuthenticatedStudyPlannerRoute
   AuthenticatedTutorRoute: typeof AuthenticatedTutorRoute
   AuthenticatedCoursesCourseIdRoute: typeof AuthenticatedCoursesCourseIdRoute
   AuthenticatedQuizzesQuizIdRoute: typeof AuthenticatedQuizzesQuizIdRoute
@@ -342,9 +426,13 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCalculatorRoute: AuthenticatedCalculatorRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedExamPrepRoute: AuthenticatedExamPrepRoute,
+  AuthenticatedExamQuestionsRoute: AuthenticatedExamQuestionsRoute,
+  AuthenticatedGraphPlotterRoute: AuthenticatedGraphPlotterRoute,
+  AuthenticatedPhotoSolverRoute: AuthenticatedPhotoSolverRoute,
   AuthenticatedProgressRoute: AuthenticatedProgressRoute,
   AuthenticatedQuizGeneratorRoute: AuthenticatedQuizGeneratorRoute,
   AuthenticatedSolverRoute: AuthenticatedSolverRoute,
+  AuthenticatedStudyPlannerRoute: AuthenticatedStudyPlannerRoute,
   AuthenticatedTutorRoute: AuthenticatedTutorRoute,
   AuthenticatedCoursesCourseIdRoute: AuthenticatedCoursesCourseIdRoute,
   AuthenticatedQuizzesQuizIdRoute: AuthenticatedQuizzesQuizIdRoute,

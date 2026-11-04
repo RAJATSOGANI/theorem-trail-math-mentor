@@ -3,6 +3,8 @@ import { Bot, Calculator, GraduationCap, LineChart, ListChecks, BookOpen, ArrowR
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
 import { MathMarkdown } from "@/components/MathMarkdown";
+import founderPortrait from "@/assets/founder_portrait.png.asset.json";
+import founderBg from "@/assets/founder_background.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,7 +67,21 @@ function Landing() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-24">
+      <section className="relative isolate overflow-hidden bg-sidebar text-sidebar-foreground">
+        <img src={founderBg.url} alt="" aria-hidden className="absolute inset-0 -z-20 h-full w-full object-cover opacity-30" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-sidebar via-sidebar/90 to-sidebar/60" />
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-[1.3fr_1fr]">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">Rajat Jain</p>
+            <h2 className="mt-3 text-4xl font-semibold leading-tight md:text-5xl">Founder of MathMentor AI</h2>
+            <p className="mt-4 text-xl text-sidebar-foreground/80">Building Smarter Mathematics Learning with AI</p>
+            <Button size="lg" className="mt-8" asChild><a href="#founder">Meet the founder <ArrowRight /></a></Button>
+          </div>
+          <img src={founderPortrait.url} alt="Rajat Jain, founder of MathMentor AI" className="mx-auto aspect-[4/5] w-full max-w-sm rounded-2xl object-cover object-[45%_center] shadow-card ring-1 ring-sidebar-border" />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-24">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
             <div key={f.title} className="rounded-xl border bg-card p-6 shadow-card">
@@ -74,6 +90,18 @@ function Landing() {
               <p className="mt-1 text-sm text-muted-foreground">{f.text}</p>
             </div>
           ))}
+        </div>
+      </section>
+      <section id="founder" className="mx-auto max-w-6xl px-6 pb-24">
+        <div className="grid items-center gap-8 rounded-2xl border bg-card p-6 shadow-card md:grid-cols-[260px_1fr] md:p-10">
+          <img src={founderPortrait.url} alt="Rajat Jain" className="mx-auto aspect-square w-56 rounded-full object-cover object-[45%_30%] ring-4 ring-accent/40" />
+          <div>
+            <p className="font-mono text-xs uppercase tracking-widest text-primary">The founder</p>
+            <h2 className="mt-2 text-3xl font-semibold">Rajat Jain</h2>
+            <p className="text-sm text-muted-foreground">Founder of MathMentor AI</p>
+            <p className="mt-4 leading-relaxed">I am passionate about mathematics and technology. My vision is to make mathematics easier to understand through AI-powered learning, step-by-step solutions, and smart practice tools.</p>
+            <p className="mt-3 leading-relaxed text-muted-foreground">MathMentor AI aims to help students prepare for GATE Mathematics and IIT JAM more effectively.</p>
+          </div>
         </div>
       </section>
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">© 2026 MathMentor AI</footer>
