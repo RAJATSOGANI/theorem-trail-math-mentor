@@ -1,7 +1,7 @@
 import { createFileRoute, Link, Outlet, redirect, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { LayoutDashboard, Bot, Sparkle, ListChecks, Calculator, BookOpen, GraduationCap, ClipboardList, LineChart, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, Bot, Sparkle, ListChecks, Calculator, BookOpen, GraduationCap, ClipboardList, LineChart, LogOut, Menu, X, Camera, FileQuestion, CalendarDays, Spline } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Logo } from "@/components/Logo";
 
@@ -19,9 +19,13 @@ const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/tutor", label: "AI Tutor", icon: Bot },
   { to: "/solver", label: "Step Solver", icon: ListChecks },
+  { to: "/photo-solver", label: "Photo Solver", icon: Camera },
   { to: "/calculator", label: "Calculator", icon: Calculator },
+  { to: "/graph-plotter", label: "Graph Plotter", icon: Spline },
   { to: "/courses", label: "Courses", icon: BookOpen },
   { to: "/exam-prep", label: "GATE & JAM", icon: GraduationCap },
+  { to: "/exam-questions", label: "Question Generator", icon: FileQuestion },
+  { to: "/study-planner", label: "Study Planner", icon: CalendarDays },
   { to: "/quiz-generator", label: "AI Quiz Generator", icon: Sparkle },
   { to: "/quizzes", label: "Quizzes & Tests", icon: ClipboardList },
   { to: "/progress", label: "Analytics", icon: LineChart },
@@ -49,7 +53,7 @@ function AppShell() {
           <Link to="/dashboard" onClick={() => setOpen(false)}><Logo inverted /></Link>
           <button className="lg:hidden" onClick={() => setOpen(false)} aria-label="Close menu"><X className="h-5 w-5" /></button>
         </div>
-        <nav className="flex-1 space-y-1 px-3">
+        <nav className="flex-1 space-y-1 overflow-y-auto px-3">
           {nav.map((n) => (
             <Link
               key={n.to}
