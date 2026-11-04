@@ -29,7 +29,7 @@ function extractText(res: unknown): string {
   return parts.join("\n");
 }
 
-type Input = Parameters<typeof generateResponse>[0]["input"];
+type Input = NonNullable<Parameters<typeof generateResponse>[0]["input"]>;
 
 async function run(instructions: string, messages: Msg[] | Input) {
   try {
